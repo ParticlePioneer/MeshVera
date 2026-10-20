@@ -1,0 +1,9 @@
+{
+  "name": "meshvera-preview-launcher",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Launcher only: starts the Python API and Streamlit UI for the workspace preview. MeshVera itself is Python.",
+  "scripts": {
+    "dev": "node scripts/dev.mjs"
+  }
+}

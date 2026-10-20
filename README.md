@@ -38,3 +38,25 @@ Do not combine these two products. If the answer-service pivot is actually inten
 | `examples/experiment.v1.json` | Complete proposed configuration example |
 
 This is a repository handoff, not an installed ChatGPT skill and not an application scaffold. The root `SKILL.md` is a project playbook; tool-native auto-discovery is not assumed. Commit the selected documents into the actual application repository during bootstrap, preserving existing unrelated work. No remote repository changes are made by this delivery.
+
+## F00 local setup (implemented, not yet verified)
+
+F00 code now exists: `src/meshvera/` (settings, FastAPI `/health`, worker), `ui/app.py` (Streamlit shell) and `tests/`. **None of the commands below has been run yet**; see `docs/features/F00.md`. Repository inspection found no Node/Firebase answer service, so nothing was replaced.
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+cp .env.example .env            # defaults to LLM_MODE=mock; never commit real keys
+
+python -m meshvera.api          # API on http://127.0.0.1:8000/health
+python -m meshvera.worker       # worker (no jobs yet); add --once to exit after one poll
+streamlit run ui/app.py         # UI shell (needs PYTHONPATH=src or the editable install)
+
+python -m pytest                # offline tests, no network or paid calls
+python -m ruff check .
+python -m mypy src
+```
+
+Workspace preview: `npm install && npm run dev` runs `scripts/dev.mjs`, which only launches the Python API and Streamlit UI (Python 3.10+ and `pip install -e ".[dev]"` required).
+
+Not yet implemented target commands: `python -m meshvera.cli`, `python -m meshvera.evals`, integration and e2e tests. In live mode, set `LLM_PROVIDER`, `LLM_MODEL` and `LLM_API_KEY` as environment variables/Secrets; no live adapter exists in F00.

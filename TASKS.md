@@ -6,7 +6,7 @@ Status vocabulary: planned / in progress / implemented / verified / blocked. “
 
 | Order | Feature | Dependencies | Status | Evidence |
 | --- | --- | --- | --- | --- |
-| 1 | F00 Foundation | — | planned | — |
+| 1 | F00 Foundation | — | implemented (unverified: no checks run yet) | docs/features/F00.md |
 | 2 | F01 Identity, MFA, isolation | F00 | planned | — |
 | 3 | F02 Configuration and approval | F00, F01 | planned | — |
 | 4 | F03 Data, learner, metrics | F00, F02 | planned | — |
