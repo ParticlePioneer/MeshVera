@@ -1,0 +1,13 @@
+{
+  "schema_version": "experiment.v1",
+  "agents": 12,
+  "rounds": 30,
+  "seeds": [11, 29, 47],
+  "strategies": ["fixed", "random", "reliability", "adaptive"],
+  "topology": {"kind": "ring", "edge_probability": null},
+  "dataset": {"features": 8, "train_per_agent": 100, "validation_per_agent": 40, "test_per_agent": 100, "heterogeneity": 0.6, "class_separation": 1.0},
+  "network": {"packet_loss": 0.1, "bad_agent_ratio": 0.2, "bad_behavior": "sign_flip", "requests_per_agent_round": 1, "requests_per_agent_total": 30},
+  "learning": {"steps_per_round": 1, "learning_rate": 0.1, "l2": 0.001, "neighbor_blend": 0.5},
+  "policy": {"epsilon": 0.1, "utility_ema_rate": 0.2, "utility_scale": 0.1, "utility_weight": 0.7},
+  "trace": {"agent_ids": [0, 1]}
+}
